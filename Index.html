@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sistema de Identificación CSPN’83</title>
+<style>
+:root{color-scheme:dark}*{box-sizing:border-box}body{margin:0;min-height:100vh;background:radial-gradient(circle at top,#23364d,#090d14 65%);color:#f4f7fb;font-family:Arial,Helvetica,sans-serif;display:flex;align-items:center;justify-content:center;padding:22px}.card{width:min(680px,100%);background:rgba(10,15,23,.94);border:1px solid #667487;border-radius:18px;padding:clamp(22px,5vw,42px);box-shadow:0 20px 70px #0008}.top{display:flex;align-items:center;gap:14px;border-bottom:1px solid #394655;padding-bottom:18px}.seal{width:68px;height:68px;flex:0 0 68px;border:2px solid #c8d2df;border-radius:50%;display:grid;place-items:center;font-size:29px}.eyebrow{font-size:12px;letter-spacing:2px;color:#c3ccd8;text-transform:uppercase}.top h1{font-size:clamp(21px,4vw,30px);margin:7px 0 0}.stamp{display:inline-block;color:#ff7474;border:2px solid #ff7474;padding:7px 12px;font-weight:900;letter-spacing:2px;transform:rotate(-3deg);margin:25px 0 10px}.intro{color:#c8d1dc;line-height:1.55}.progress-wrap{background:#202a36;border-radius:99px;height:12px;overflow:hidden;margin:18px 0 8px}.progress{height:100%;width:0;background:#8bc5ff;transition:width .12s linear}.status{font-family:monospace;color:#a9d5ff;min-height:22px;font-size:14px}.result{display:none;margin-top:25px;border:1px solid #687789;background:#131e2a;border-radius:12px;padding:22px}.result h2{margin:0 0 12px;color:#ffda7b;font-size:25px}.warning{font-size:18px;line-height:1.55}.badge{display:inline-block;margin-top:12px;padding:8px 12px;border-radius:6px;background:#203e31;color:#a8f0c5;font-weight:bold}.small{color:#aeb9c7;font-size:12px;line-height:1.5;margin-top:25px}.btn{border:0;border-radius:8px;background:#e2eaf4;color:#101923;font-weight:bold;font-size:16px;padding:12px 18px;cursor:pointer;margin-top:14px}.btn:hover{background:#fff}footer{text-align:center;color:#96a5b7;font-size:12px;margin-top:22px}
+</style>
+</head>
+<body>
+<main class="card">
+  <div class="top"><div class="seal">🕵️</div><div><div class="eyebrow">Protocolo de seguridad • CSPN’83</div><h1>Sistema de Identificación de Participantes</h1></div></div>
+  <div class="stamp">CONFIDENCIAL — BROMA</div>
+  <p class="intro">Iniciando verificación de seguridad para la expedición a San Pedro de Atacama, 19 de noviembre de 2026. Por favor, espere mientras el sistema evalúa el nivel de riesgo del participante.</p>
+  <div class="progress-wrap"><div class="progress" id="progress"></div></div>
+  <div class="status" id="status">Preparando análisis...</div>
+  <button class="btn" id="start">Iniciar verificación</button>
+  <section class="result" id="result" aria-live="polite">
+    <h2>✅ IDENTIFICACIÓN COMPLETADA</h2>
+    <p class="warning"><strong>Participante autorizado para viajar a San Pedro de Atacama.</strong></p>
+    <p class="warning">⚠️ ADVERTENCIA: El individuo presenta altos niveles de riesgo de consumo de alcohol, bromas fuera de lugar y recuerdos vergonzosos después de las 02:00 AM.</p>
+    <div class="badge">MISIÓN CSPN’83: AUTORIZADA</div>
+    <p class="warning">La seguridad nacional recomienda no dejarlo solo cerca del parlante ni permitirle contar “esa historia” por quinta vez. 😂</p>
+    <p><strong>¡Nos vemos en el desierto! 🏜️🍻</strong></p>
+  </section>
+  <p class="small">Aviso: esta página es una broma para el encuentro CSPN’83. No pertenece a ningún organismo gubernamental, no solicita datos personales y no realiza verificaciones reales.</p>
+  <footer>OPERACIÓN ATACAMA • CSPN’83 2026</footer>
+</main>
+<script>
+const btn=document.getElementById('start'),bar=document.getElementById('progress'),status=document.getElementById('status'),result=document.getElementById('result');
+const steps=['Conectando con el satélite de Miami...','Analizando historial de bromas...','Evaluando riesgo para la tranquilidad del grupo...','Consultando al Departamento de Asados y Anécdotas...','Resultado final preparado.'];
+btn.addEventListener('click',()=>{btn.disabled=true;btn.style.display='none';result.style.display='none';let p=0;status.textContent=steps[0];const timer=setInterval(()=>{p+=2;bar.style.width=p+'%';if(p%20===0){status.textContent=steps[Math.min(steps.length-1,Math.floor(p/20))]}if(p>=100){clearInterval(timer);status.textContent='Verificación completada. ¡Tenemos novedades!';result.style.display='block';}},65)});
+</script>
+</body>
+</html>
